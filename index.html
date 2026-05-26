@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sara Logsdon — Mathematics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-light: #4a4a44;
+      --ink-faint: #8a8a80;
+      --rule: #d8d4cc;
+      --page: #faf8f4;
+      --accent: #2a4a8a;
+      --accent-light: #e8eef8;
+      --serif: 'EB Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { font-size: 18px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--serif);
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* Layout */
+    .wrapper {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Header */
+    header {
+      padding: 4rem 0 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.25rem;
+    }
+
+    header .subtitle {
+      font-size: 1rem;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-light);
+    }
+
+    .contact-row a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .contact-row a:hover { border-color: var(--accent); }
+
+    /* Nav */
+    nav {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-faint);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-heading {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 1.5rem;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .about-text p + p { margin-top: 1rem; }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 4px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      color: var(--ink-light);
+      background: white;
+    }
+
+    /* Publications */
+    .pub-list { list-style: none; }
+
+    .pub-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pub-item:first-child { padding-top: 0; }
+    .pub-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      line-height: 1.45;
+    }
+
+    .pub-authors {
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      font-style: italic;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-venue {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+    }
+
+    .pub-venue a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.15s;
+    }
+
+    .pub-venue a:hover { border-color: var(--accent); }
+
+    .pub-placeholder {
+      font-size: 0.95rem;
+      color: var(--ink-faint);
+      font-style: italic;
+    }
+
+    /* Teaching */
+    .teaching-list { list-style: none; }
+
+    .teaching-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .teaching-item:first-child { padding-top: 0; }
+    .teaching-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .course-name {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .course-role {
+      font-size: 0.88rem;
+      color: var(--ink-light);
+      font-style: italic;
+    }
+
+    .course-term {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--ink-faint);
+      white-space: nowrap;
+    }
+
+    /* Contact */
+    .contact-block {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .contact-block a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-light);
+      transition: border-color 0.15s;
+    }
+
+    .contact-block a:hover { border-color: var(--accent); }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 3rem;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--ink-faint);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      html { font-size: 16px; }
+      header { padding: 2.5rem 0 2rem; }
+      header h1 { font-size: 1.9rem; }
+      nav { gap: 1.25rem; flex-wrap: wrap; }
+      .teaching-item { grid-template-columns: 1fr; gap: 0.2rem; }
+      .course-term { margin-top: 0.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <header>
+      <h1>Sara Logsdon</h1>
+      <p class="subtitle">PhD student in Mathematics &middot; University of Pennsylvania</p>
+      <div class="contact-row">
+        <a href="mailto:slogsdon@math.upenn.edu">slogsdon@math.upenn.edu</a>
+        <span>Department of Mathematics, David Rittenhouse Lab</span>
+        <a href="/cv.pdf">Curriculum Vitae</a>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About -->
+    <section id="about">
+      <p class="section-heading">About</p>
+      <div class="about-text">
+        <p>
+          I am a second-year PhD student in the
+          <a href="https://www.math.upenn.edu" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);">Department of Mathematics</a>
+          at the University of Pennsylvania. My research is in algebra —
+          specifically, [describe your specific research area here, e.g.,
+          representation theory of algebraic groups, homological methods in
+          commutative algebra, etc.].
+        </p>
+        <p>
+          I am advised by [Advisor Name]. Before Penn, I completed my
+          undergraduate degree at [Undergraduate Institution].
+        </p>
+        <div class="interest-tags">
+          <span class="tag">Algebra</span>
+          <span class="tag">[Research area]</span>
+          <span class="tag">[Another interest]</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <p class="section-heading">Publications &amp; Preprints</p>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <p class="pub-placeholder">
+            No publications yet — papers and preprints will appear here.
+          </p>
+        </li>
+        <!--
+          When you have a paper, use this template:
+
+          <li class="pub-item">
+            <p class="pub-title">Your Paper Title Here</p>
+            <p class="pub-authors">Sara Logsdon</p>
+            <p class="pub-venue">
+              Preprint, 2025 &middot;
+              <a href="https://arxiv.org/abs/xxxx.xxxxx">arXiv:xxxx.xxxxx</a>
+            </p>
+          </li>
+        -->
+      </ul>
+    </section>
+
+    <!-- Teaching -->
+    <section id="teaching">
+      <p class="section-heading">Teaching</p>
+      <ul class="teaching-list">
+        <li class="teaching-item">
+          <div>
+            <p class="course-name">Math 114 &mdash; Calculus II</p>
+            <p class="course-role">Teaching Assistant, University of Pennsylvania</p>
+          </div>
+          <span class="course-term">Spring 2025</span>
+        </li>
+        <li class="teaching-item">
+          <div>
+            <p class="course-name">Math 103 &mdash; Introduction to Calculus</p>
+            <p class="course-role">Teaching Assistant, University of Pennsylvania</p>
+          </div>
+          <span class="course-term">Fall 2024</span>
+        </li>
+        <!--
+          Add more courses using the same structure above.
+        -->
+      </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <p class="section-heading">Contact</p>
+      <div class="contact-block">
+        <p>
+          The best way to reach me is by email at
+          <a href="mailto:slogsdon@math.upenn.edu">slogsdon@math.upenn.edu</a>.
+        </p>
+        <p style="margin-top:0.75rem; font-size:0.9rem; color:var(--ink-light); font-style:italic;">
+          David Rittenhouse Laboratory<br />
+          209 South 33rd Street<br />
+          Philadelphia, PA 19104
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Last updated May 2026.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
