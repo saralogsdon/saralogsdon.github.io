@@ -77,7 +77,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform 0.2s ease;
     }
     .bagel-card:hover .bagel-photo img { transform: scale(1.015); }
@@ -90,7 +90,22 @@
       letter-spacing: 0.02em;
       margin-bottom: 0.22rem;
     }
+    .bagel-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
     .bagel-info h2 { font-size: 1.05rem; font-weight: 500; line-height: 1.35; }
+
+    .rating {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: var(--accent);
+      white-space: nowrap;
+    }
 
     footer { margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule); }
     footer p { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-faint); }
@@ -141,7 +156,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-07-30">July 30, 2026</time>
-          <h2>Izes Deli & Bagelry (Rockville)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Izes Deli & Bagelry (Rockville)</h2>
+
+            <span class="rating">6.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -150,7 +171,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-06-13">June 13, 2026</time>
-          <h2>Neal's Bagels (Gaithersburg)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Neal's Bagels (Gaithersburg)</h2>
+
+            <span class="rating">8.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -159,7 +186,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-06-07">June 7, 2026</time>
-          <h2>Bagel Basket (Bethlehem)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Bagel Basket (Bethlehem)</h2>
+
+            <span class="rating">7/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -168,7 +201,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-04-04">April 4, 2026</time>
-          <h2>Olmo (New Haven)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Olmo (New Haven)</h2>
+
+            <span class="rating">8/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -177,7 +216,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-01-13">January 13, 2026</time>
-          <h2>Spread Bagelry (Rittenhouse) </h2>
+          <div class="bagel-title-row">
+
+            <h2>Spread Bagelry (Rittenhouse) </h2>
+
+            <span class="rating">5.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -186,7 +231,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2026-01-04">January 4, 2026</time>
-          <h2>The Bagelry (Silver Spring)</h2>
+          <div class="bagel-title-row">
+
+            <h2>The Bagelry (Silver Spring)</h2>
+
+            <span class="rating">7/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -195,7 +246,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2025-12-15">December 15, 2025</time>
-          <h2>Apollo Bagels (Midtown)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Apollo Bagels (Midtown)</h2>
+
+            <span class="rating">9/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -204,7 +261,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2025-05-07">May 7, 2025</time>
-          <h2>The Bagel Hole (Atlanta)</h2>
+          <div class="bagel-title-row">
+
+            <h2>The Bagel Hole (Atlanta)</h2>
+
+            <span class="rating">7/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -213,7 +276,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2025-03-05">March 5, 2025</time>
-          <h2>Pop Up Bagels (Greenwich Village)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Pop Up Bagels (Greenwich Village)</h2>
+
+            <span class="rating">9/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -222,7 +291,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2025-03-04">March 4, 2025</time>
-          <h2>Tompkins Square Bagels (Union Square)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Tompkins Square Bagels (Union Square)</h2>
+
+            <span class="rating">8/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -231,7 +306,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2025-01-03">January 3, 2025</time>
-          <h2>Pearl Bagelsc (DC)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Pearl Bagels (DC)</h2>
+
+            <span class="rating">8/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -240,7 +321,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2024-12-24">December 24, 2024</time>
-          <h2>Goldberg's Bagels (Silver Spring)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Goldberg's Bagels (Silver Spring)</h2>
+
+            <span class="rating">7/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -249,7 +336,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2024-12-18">December 18, 2024</time>
-          <h2>Bethesda Bagels</h2>
+          <div class="bagel-title-row">
+
+            <h2>Bethesda Bagels</h2>
+
+            <span class="rating">8.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -258,7 +351,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2024-05-11">May 11, 2024</time>
-          <h2>Budapest Bagel</h2>
+          <div class="bagel-title-row">
+
+            <h2>Budapest Bagel</h2>
+
+            <span class="rating">5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -267,7 +366,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2023-07-30">July 30, 2023</time>
-          <h2>Terrace Bagel (Brooklyn)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Terrace Bagel (Brooklyn)</h2>
+
+            <span class="rating">8.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -276,7 +381,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2022-10-30">October 30, 2022</time>
-          <h2>Bart's Bagels (West Philadelphia)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Bart's Bagels (West Philadelphia)</h2>
+
+            <span class="rating">7.5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -285,7 +396,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2022-04-02">April 2, 2022</time>
-          <h2>Best Bagel and Coffee (Midtown)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Best Bagel and Coffee (Midtown)</h2>
+
+            <span class="rating">6/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -294,7 +411,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2022-03-08">March 8, 2022</time>
-          <h2>Ideal Bagel (Athens GA)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Ideal Bagel (Athens GA)</h2>
+
+            <span class="rating">5/10</span>
+
+          </div>
         </div>
       </article>
       <article class="bagel-card">
@@ -303,7 +426,13 @@
         </div>
         <div class="bagel-info">
           <time datetime="2020-09-07">September 7, 2020</time>
-          <h2>Call Your Mother Deli (Bethesda)</h2>
+          <div class="bagel-title-row">
+
+            <h2>Call Your Mother Deli (Bethesda)</h2>
+
+            <span class="rating">6.5/10</span>
+
+          </div>
         </div>
       </article>
       </div>
