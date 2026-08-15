@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bagels — Sara Logsdon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --ink-light: #4a4a44;
+      --ink-faint: #8a8a80;
+      --rule: #d8d4cc;
+      --page: #faf8f4;
+      --accent: #2a4a8a;
+      --accent-light: #e8eef8;
+      --serif: 'EB Garamond', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html { font-size: 18px; }
+    body {
+      font-family: var(--serif);
+      background: var(--page);
+      color: var(--ink);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    .wrapper { max-width: 980px; margin: 0 auto; padding: 0 2rem; }
+
+    header { padding: 4rem 0 2.5rem; border-bottom: 1px solid var(--rule); }
+    header h1 { font-size: 2.4rem; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 0.25rem; }
+    header .subtitle { font-size: 1rem; color: var(--ink-light); font-style: italic; margin-bottom: 1.25rem; }
+
+    .contact-row {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--ink-light);
+    }
+    .contact-row a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+    .contact-row a:hover { border-color: var(--accent); }
+
+    nav { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); display: flex; gap: 2rem; flex-wrap: wrap; }
+    nav a {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint);
+      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    nav a:hover, nav a.active { color: var(--ink); }
+
+    main { padding: 3rem 0 1rem; }
+    .section-heading {
+      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.9rem;
+    }
+    .intro { max-width: 620px; font-size: 1.05rem; line-height: 1.75; margin-bottom: 2.4rem; }
+    .intro .count { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-faint); margin-top: 0.65rem; }
+
+    .bagel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem 1.5rem;
+    }
+
+    .bagel-card { min-width: 0; }
+    .bagel-photo {
+      background: #fff;
+      border: 1px solid var(--rule);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+    .bagel-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+    .bagel-card:hover .bagel-photo img { transform: scale(1.015); }
+
+    .bagel-info time {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      color: var(--ink-faint);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.22rem;
+    }
+    .bagel-info h2 { font-size: 1.05rem; font-weight: 500; line-height: 1.35; }
+
+    footer { margin-top: 3rem; padding: 2rem 0 3rem; border-top: 1px solid var(--rule); }
+    footer p { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-faint); }
+
+    @media (max-width: 680px) {
+      html { font-size: 16px; }
+      .wrapper { padding: 0 1.25rem; }
+      header { padding: 2.5rem 0 2rem; }
+      header h1 { font-size: 1.9rem; }
+      nav { gap: 1.25rem; }
+      .bagel-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .bagel-photo { aspect-ratio: 5 / 4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Sara Logsdon</h1>
+      <p class="subtitle">PhD student in Mathematics &middot; University of Pennsylvania</p>
+      <div class="contact-row">
+        <a href="mailto:slogsdon@sas.upenn.edu">slogsdon@sas.upenn.edu</a>
+        <span>Department of Mathematics, David Rittenhouse Lab</span>
+        <a href="Files/Sara_Logsdon_CV_Updated_6_2_2026.pdf">Curriculum Vitae</a>
+      </div>
+    </header>
+
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="index.html#publications">Publications</a>
+      <a href="index.html#notes">Notes</a>
+      <a href="index.html#teaching">Teaching</a>
+      <a class="active" href="bagels.html">Bagels</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <main>
+      <p class="section-heading">Bagel Log</p>
+      <div class="intro">
+        <p>A running record of bagels I have eaten, newest first.</p>
+        <p class="count">20 stops &middot; September 2020–July 2026</p>
+      </div>
+
+      <div class="bagel-grid">
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/izes-deli-bagelry-north-bethesda.jpg" alt="Bagel from Izes Deli & Bagelry (North Bethesda)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-07-30">July 30, 2026</time>
+          <h2>Izes Deli & Bagelry (North Bethesda)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/neals-bagels-gaithersburg.jpg" alt="Bagel from Neal's Bagels (Gaithersburg)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-06-13">June 13, 2026</time>
+          <h2>Neal's Bagels (Gaithersburg)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/bagel-basket-bethlehem.jpg" alt="Bagel from Bagel Basket (Bethlehem)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-06-07">June 7, 2026</time>
+          <h2>Bagel Basket (Bethlehem)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/olmo-new-haven.jpg" alt="Bagel from Olmo (New Haven)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-04-04">April 4, 2026</time>
+          <h2>Olmo (New Haven)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/spread-bagelry.jpg" alt="Bagel from Spread Bagelry" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-01-13">January 13, 2026</time>
+          <h2>Spread Bagelry</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/the-bagelry-silver-spring.jpg" alt="Bagel from The Bagelry (Silver Spring)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2026-01-04">January 4, 2026</time>
+          <h2>The Bagelry (Silver Spring)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/apollo-bagels-midtown.jpg" alt="Bagel from Apollo Bagels (Midtown)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2025-12-15">December 15, 2025</time>
+          <h2>Apollo Bagels (Midtown)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/the-bagel-hole.jpg" alt="Bagel from The Bagel Hole" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2025-05-07">May 7, 2025</time>
+          <h2>The Bagel Hole</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/pop-up-bagels.jpg" alt="Bagel from Pop Up Bagels" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2025-03-05">March 5, 2025</time>
+          <h2>Pop Up Bagels</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/tompkins-square-bagels-union-square.jpg" alt="Bagel from Tompkins Square Bagels (Union Square)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2025-03-04">March 4, 2025</time>
+          <h2>Tompkins Square Bagels (Union Square)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/pearl-bagels.jpg" alt="Bagel from Pearl Bagels" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2025-01-03">January 3, 2025</time>
+          <h2>Pearl Bagels</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/goldbergs-bagels-silver-spring.jpg" alt="Bagel from Goldberg's Bagels (Silver Spring)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2024-12-24">December 24, 2024</time>
+          <h2>Goldberg's Bagels (Silver Spring)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/bethesda-bagels.jpg" alt="Bagel from Bethesda Bagels" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2024-12-18">December 18, 2024</time>
+          <h2>Bethesda Bagels</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/budapest-bagel.jpg" alt="Bagel from Budapest Bagel" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2024-05-11">May 11, 2024</time>
+          <h2>Budapest Bagel</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/terrace-bagel.jpg" alt="Bagel from Terrace Bagel" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2023-07-30">July 30, 2023</time>
+          <h2>Terrace Bagel</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/best-bagel-coffee-midtown.jpg" alt="Bagel from Best Bagel & Coffee (Midtown)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2023-01-27">January 27, 2023</time>
+          <h2>Best Bagel & Coffee (Midtown)</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/barts-bagels.jpg" alt="Bagel from Bart's Bagels" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2022-10-30">October 30, 2022</time>
+          <h2>Bart's Bagels</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/best-bagel-and-coffee-2022.jpg" alt="Bagel from Best Bagel and Coffee" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2022-04-02">April 2, 2022</time>
+          <h2>Best Bagel and Coffee</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/ideal-bagel.jpg" alt="Bagel from Ideal Bagel" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2022-03-08">March 8, 2022</time>
+          <h2>Ideal Bagel</h2>
+        </div>
+      </article>
+      <article class="bagel-card">
+        <div class="bagel-photo">
+          <img src="Bagels/call-your-mother-deli-bethesda.jpg" alt="Bagel from Call Your Mother Deli (Bethesda)" loading="lazy" />
+        </div>
+        <div class="bagel-info">
+          <time datetime="2020-09-07">September 7, 2020</time>
+          <h2>Call Your Mother Deli (Bethesda)</h2>
+        </div>
+      </article>
+      </div>
+    </main>
+
+    <footer>
+      <p>Bagel log through July 30, 2026.</p>
+    </footer>
+  </div>
+</body>
+</html>
